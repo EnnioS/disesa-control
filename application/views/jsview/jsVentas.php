@@ -1,10 +1,14 @@
 <script>
 $(document).ready(function() {
-    $("#txtFechaFact").mask("00-00-0000", {placeholder: "__-__-____"});
+
+    fechaFact = $("#txtFechaFactura").mask("00-00-0000", {placeholder: "__-__-____"});
+
+
    $("#searchRegVentas").on('keyup',function(){
         var table = $('#tblFacturas').DataTable();
         table.search(this.value).draw();
     });
+
     $( "#frm_lab_row").change(function() {
         var table = $('#tblFacturas').DataTable();
         table.page.len(this.value).draw();
@@ -78,7 +82,7 @@ var totalFactura = 0;
 $("#agregarDetfact").on('click', function(){
     Objtable = $("#tblDetFacturas").DataTable();
     var idFact = $("#textIdfact").val();
-    var fecha =  $("#txtFechaFact").val();
+    var fechaFact =  $("#txtFechaFactura").val();
     var idCliente = $("#txtClienteFact").val();
     var idVendedor = $("#txtVendedorFact").val();
     var formaPago = $("#txtFormaPagoFact").val();
@@ -94,7 +98,8 @@ $("#agregarDetfact").on('click', function(){
     var bonificacion = "+"+$("#txtCantBonifDetFact").val();
     var total = parseInt(cantidad) * parseFloat(precio);
     var productoRepetido = false;
-    var splitedFecha = fecha.split("-");
+    var splitedFecha = fechaFact.split("-");
+    console.log($("#idFact").val());
 
     var idProdEnTabla;
 
@@ -125,7 +130,7 @@ $("#agregarDetfact").on('click', function(){
             $("#tipoMonedaFactu").html("US$");
         }
 
-        console.log(splitedFecha[0]+", "+splitedFecha[1]+", "+splitedFecha[2]);
+        
         
     if(validarFecha(splitedFecha)==0){
         //fecha es incorrecta; el mensaje se encuentra en el archivo global JS.js 
@@ -241,7 +246,7 @@ $('#tblDetFacturas').on('click', '#RowDeleteDetFact', function(){
 
 $("#agregarfact").on('click', function(){
     var idFact = $("#textIdfact").val();
-    var fecha =  $("#txtFechaFact").val();
+    var fecha =  $("#txtFechaFactura").val();
     var idCliente = $("#txtClienteFact").val();
     var idVendedor = $("#txtVendedorFact").val();
     var formaPago = $("#txtFormaPagoFact").val();

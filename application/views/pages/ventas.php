@@ -208,9 +208,10 @@
                         </span>
                     </div>
                     <div class="col s12 m2 input-field inline">
-                         <input type="text" id="txtFechaFact" placeholder="Fecha" value=""/>
-                        <label for="txtFechaFact">FECHA</label>
+                         <input type="text" id="txtFechaFactura" placeholder="Fecha" value=""/>
+                        <label for="txtFechaFactura">FECHA</label>
                     </div>
+                    
                     <div class="col s12 m2 input-field inline">
                         <input placeholder="" type="number" id="textIdfact" type="text" class="validate">
                         <label for="textIdfact">FACTURA N°</label>
@@ -225,8 +226,10 @@
                          <select id="txtVendedorFact" class="txtNomPer chosen-select browser-default">
                         </select>
                     </div>
-                    
+                </div>
 
+
+                <div class="row">
                     <div class="col s12 m3 input-field inline">
                        <select id="txtFormaPagoFact" class="chosen-select browser-default">
                             <option value="PAGO">Forma de Pago</option>
